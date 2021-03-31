@@ -1768,7 +1768,8 @@ public class NumberPicker extends LinearLayout {
                 canvas.clipRect(mLeftDividerLeft, 0, mRightDividerRight, getBottom());
             }
         } else {
-            x = (getRight() - getLeft()) / 2f;
+            //x = (getRight() - getLeft()) / 2f;
+            x = getRight();
             y = mCurrentScrollOffset;
             if (mRealWheelItemCount < DEFAULT_WHEEL_ITEM_COUNT) {
                 canvas.clipRect(0, mTopDividerTop, getRight(), mBottomDividerBottom);
