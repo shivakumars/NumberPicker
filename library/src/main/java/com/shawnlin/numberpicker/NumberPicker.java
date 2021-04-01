@@ -1780,11 +1780,11 @@ public class NumberPicker extends LinearLayout {
             }
         } else {
             if(mTextViewAlign == CENTER){
-		x = (getRight() - getLeft()) / 2f;
+				x = (getRight() - getLeft()) / 2f;
             } else if(mTextViewAlign == LEFT){
-		x = getLeft();
+				x = getLeft() + dpToPx(mContext, 10);
             } else if(mTextViewAlign == RIGHT){
-            	x = getRight();
+            	x = getRight() - dpToPx(mContext, 10);
             } else{
             	x = (getRight() - getLeft()) / 2f;
             }
@@ -3018,4 +3018,8 @@ public class NumberPicker extends LinearLayout {
         return mTextViewAlign;
     }
 
+	private int dpToPx(Context context, int dp) {
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+        return (int) px;
+    }
 }
