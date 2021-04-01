@@ -158,6 +158,11 @@ public class NumberPicker extends LinearLayout {
      * The default align of text.
      */
     private static final int DEFAULT_TEXT_ALIGN = CENTER;
+    
+    /**
+     * The default align of text.
+     */
+    private static final int DEFAULT_TEXT_VIEW_ALIGN = CENTER;
 
     /**
      * The default color of text.
@@ -324,6 +329,11 @@ public class NumberPicker extends LinearLayout {
      * The typeface of the text.
      */
     private Typeface mTypeface;
+    
+    /**
+     * The align of the text view.
+     */
+    private int mTextViewAlign = DEFAULT_TEXT_VIEW_ALIGN;
 
     /**
      * The width of the gap between text elements if the selector wheel.
@@ -786,6 +796,7 @@ public class NumberPicker extends LinearLayout {
         mSelectedTypeface = Typeface.create(attributes.getString(
                 R.styleable.NumberPicker_np_selectedTypeface), Typeface.NORMAL);
         mTextAlign = attributes.getInt(R.styleable.NumberPicker_np_textAlign, mTextAlign);
+        mTextViewAlign = attributes.getInt(R.styleable.NumberPicker_np_textViewAlign, mTextViewAlign);
         mTextColor = attributes.getColor(R.styleable.NumberPicker_np_textColor, mTextColor);
         mTextSize = attributes.getDimension(R.styleable.NumberPicker_np_textSize,
                 spToPx(mTextSize));
@@ -1768,8 +1779,13 @@ public class NumberPicker extends LinearLayout {
                 canvas.clipRect(mLeftDividerLeft, 0, mRightDividerRight, getBottom());
             }
         } else {
-            //x = (getRight() - getLeft()) / 2f;
-            x = getRight();
+            if(mTextViewAlign == CENTER){
+				x = (getRight() - getLeft()) / 2f;
+            } else if(mTextViewAlign == LEFT){
+				x = getLeft();
+            } else if(mTextViewAlign == RIGHT){
+            	x = getRight();
+            }
             y = mCurrentScrollOffset;
             if (mRealWheelItemCount < DEFAULT_WHEEL_ITEM_COUNT) {
                 canvas.clipRect(0, mTopDividerTop, getRight(), mBottomDividerBottom);
@@ -2819,6 +2835,10 @@ public class NumberPicker extends LinearLayout {
         mTextAlign = align;
     }
 
+    public void setTextViewAlign(@Align int align) {
+        mTextViewAlign = align;
+    }
+
     public void setTextColor(@ColorInt int color) {
         mTextColor = color;
         mSelectorWheelPaint.setColor(mTextColor);
@@ -2990,6 +3010,10 @@ public class NumberPicker extends LinearLayout {
 
     public int getMaxFlingVelocityCoefficient() {
         return mMaxFlingVelocityCoefficient;
+    }
+
+    public int getTextViewAlign() {
+        return mTextViewAlign;
     }
 
 }
