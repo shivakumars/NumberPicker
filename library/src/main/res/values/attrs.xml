@@ -49,6 +49,11 @@
             <enum name="textAlignCenter" value="1" />
             <enum name="textAlignLeft" value="2" />
         </attr>
+        <attr name="np_textViewAlign" format="enum">
+            <enum name="textAlignRight" value="0" />
+            <enum name="textAlignCenter" value="1" />
+            <enum name="textAlignLeft" value="2" />
+        </attr>
         <attr name="np_textColor" format="color" />
         <attr name="np_textSize" format="dimension" />
         <attr name="np_textStrikeThru" format="boolean" />
