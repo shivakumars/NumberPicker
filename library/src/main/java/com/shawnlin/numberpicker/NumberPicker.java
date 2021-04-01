@@ -1780,11 +1780,13 @@ public class NumberPicker extends LinearLayout {
             }
         } else {
             if(mTextViewAlign == CENTER){
-				x = (getRight() - getLeft()) / 2f;
+		x = (getRight() - getLeft()) / 2f;
             } else if(mTextViewAlign == LEFT){
-				x = getLeft();
+		x = getLeft();
             } else if(mTextViewAlign == RIGHT){
             	x = getRight();
+            } else{
+            	x = (getRight() - getLeft()) / 2f;
             }
             y = mCurrentScrollOffset;
             if (mRealWheelItemCount < DEFAULT_WHEEL_ITEM_COUNT) {
