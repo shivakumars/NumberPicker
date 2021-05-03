@@ -1782,9 +1782,9 @@ public class NumberPicker extends LinearLayout {
             if(mTextViewAlign == CENTER){
 				x = (getRight() - getLeft()) / 2f;
             } else if(mTextViewAlign == LEFT){
-				x = getLeft() + dpToPx(mContext, 10);
+				x = getLeft() + dpToPx(mContext, 30);
             } else if(mTextViewAlign == RIGHT){
-            	x = getRight() - dpToPx(mContext, 10);
+            	x = getRight() - dpToPx(mContext, 30);
             } else{
             	x = (getRight() - getLeft()) / 2f;
             }
